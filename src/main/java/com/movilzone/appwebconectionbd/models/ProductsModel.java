@@ -15,11 +15,12 @@ public class ProductsModel {
     float precio;
     int stock;
     int status;
+    String img;
 
     public ProductsModel() {
     }
 
-    public ProductsModel(int id, String modelo, int marca_idmarca, int categoria_idcategoria, float precio, int stock, int status) {
+    public ProductsModel(int id, String modelo, int marca_idmarca, int categoria_idcategoria, float precio, int stock, int status, String img) {
         this.id = id;
         this.modelo = modelo;
         this.marca_idmarca = marca_idmarca;
@@ -27,15 +28,17 @@ public class ProductsModel {
         this.precio = precio;
         this.stock = stock;
         this.status = status;
+        this.img = img;
     }
 
-    public ProductsModel(String modelo, int marca_idmarca, int categoria_idcategoria, float precio, int stock, int status) {
+    public ProductsModel(String modelo, int marca_idmarca, int categoria_idcategoria, float precio, int stock, int status, String img) {
         this.modelo = modelo;
         this.marca_idmarca = marca_idmarca;
         this.categoria_idcategoria = categoria_idcategoria;
         this.precio = precio;
         this.stock = stock;
         this.status = status;
+        this.img = img;
     }
 
     public int getId() {
@@ -94,6 +97,14 @@ public class ProductsModel {
         this.status = status;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     @Override
     public String toString() {
         return "ProductsModel{" +
@@ -104,6 +115,7 @@ public class ProductsModel {
                 ", precio=" + precio +
                 ", stock=" + stock +
                 ", status=" + status +
+                ", img='" + img + '\'' +
                 '}';
     }
 }

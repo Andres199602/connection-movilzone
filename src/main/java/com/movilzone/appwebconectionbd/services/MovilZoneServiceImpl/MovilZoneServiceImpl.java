@@ -6,7 +6,7 @@ import com.movilzone.appwebconectionbd.repositories.BrandsRepository;
 import com.movilzone.appwebconectionbd.repositories.ProductsRepository;
 import com.movilzone.appwebconectionbd.services.MovilZoneService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Service;  
 
 import java.util.List;
 
@@ -28,4 +28,5 @@ public class MovilZoneServiceImpl implements MovilZoneService {
     public List<BrandsModel> showBrands() {
         return brandsRepository.findAll();
     }
+
 }
