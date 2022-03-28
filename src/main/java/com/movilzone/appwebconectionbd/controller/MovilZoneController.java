@@ -1,18 +1,28 @@
 package com.movilzone.appwebconectionbd.controller;
 
-import com.movilzone.appwebconectionbd.models.ProductsModel;
+import com.movilzone.appwebconectionbd.models.ClientsModel;
+import com.movilzone.appwebconectionbd.models.UserModel;
+import com.movilzone.appwebconectionbd.repositories.ClientsRepository;
+import com.movilzone.appwebconectionbd.repositories.UsersRepository;
 import com.movilzone.appwebconectionbd.services.MovilZoneService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3500)
 public class MovilZoneController {
 
     @Autowired
     MovilZoneService movilZoneService;
+
+    @Autowired
+    ClientsRepository clientsRepository;
+
+    @Autowired
+    UsersRepository usersRepository;
 
     @Autowired
 
@@ -30,4 +40,16 @@ public class MovilZoneController {
     public List showBrands(){
         return movilZoneService.showBrands();
     }
+
+    @PostMapping("/add-client")
+    public String addClient(@RequestBody ClientsModel clientsModel){
+        return movilZoneService.addClient(clientsModel);
+    }
+
+    @RequestMapping("/login/{email}/{password}")
+    public List loginClient(@PathVariable("email") String email, @PathVariable("password") String password){
+        return movilZoneService.login(email,password);
+    }
+
+
 }
