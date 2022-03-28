@@ -46,8 +46,8 @@ public class MovilZoneServiceImpl implements MovilZoneService {
     }
 
     @Override
-    public List<UserModel> login(String email, String password) {
-        return usersRepository.findByCorreoAndPassword(email,password);
+    public UserModel findByCorreo(String correo) {
+         return usersRepository.findByCorreo(correo);
     }
 
 

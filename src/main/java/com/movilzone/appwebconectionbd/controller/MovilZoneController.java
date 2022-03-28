@@ -46,9 +46,16 @@ public class MovilZoneController {
         return movilZoneService.addClient(clientsModel);
     }
 
-    @RequestMapping("/login/{email}/{password}")
-    public List loginClient(@PathVariable("email") String email, @PathVariable("password") String password){
-        return movilZoneService.login(email,password);
+    @PostMapping("/login")
+    public UserModel userModel(@RequestBody UserModel userModel) throws Exception {
+        UserModel user = movilZoneService.findByCorreo(userModel.getCorreo());
+        if ( user == null)
+            throw new Exception();
+
+        if (userModel.getPassword().equals(user.getPassword()))
+            return user;
+
+        throw new Exception();
     }
 
 

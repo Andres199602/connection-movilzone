@@ -18,6 +18,5 @@ public interface MovilZoneService {
 
     String addClient(@RequestBody ClientsModel clientsModel);
 
-    List<UserModel>login(String email, String password);
-
+    UserModel findByCorreo(String correo);
 }
